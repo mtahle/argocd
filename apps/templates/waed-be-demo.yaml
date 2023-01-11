@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: waed-be-demo
+  namespace: waed-demo
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: waed-demo
+  project: default
+  source:
+    chart: waed-template
+    helm:
+      releaseName: waed-be-demo
+      valueFiles:
+      - demo-values.yaml
+    repoURL: https://cm.devopsars.com
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
