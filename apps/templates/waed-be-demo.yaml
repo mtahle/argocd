@@ -13,7 +13,7 @@ spec:
   source:
     chart: waed-template
     helm:
-      releaseName: waed-be
+      releaseName: waed-be-demo
       valueFiles:
       - waed-be-demo-values.yaml
     repoURL: https://cm.devopsars.com
