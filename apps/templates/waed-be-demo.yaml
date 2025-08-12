@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: waed-be-demo
-  namespace: waed-demo
+  namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -14,9 +14,8 @@ spec:
     chart: waed-template
     helm:
       releaseName: waed-be-demo
-      valueFiles:
-      - demo-values.yaml
     repoURL: https://cm.devopsars.com
+    targetRevision: 1.0.0
   syncPolicy:
     automated:
       prune: false
